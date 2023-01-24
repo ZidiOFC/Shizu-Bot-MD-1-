@@ -928,8 +928,8 @@ export async function handler(chatUpdate) {
 	        if (!('modejadibot' in settings)) settings.modejadibot = true   
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
-                autoread: false,
-                restrict: false,
+                autoread: true,
+                restrict: true,
                 antiCall: false,
                 antiPrivate: false,
 	        modejadibot: true,
@@ -1187,7 +1187,7 @@ export async function handler(chatUpdate) {
                         }
                     }
                     if (m.limit)
-                        m.reply(+m.limit + ' DIAMOND 💎 USER')
+                        m.reply(+m.limit + ' DIAMOND 🍒 USER')
                 }
                 break
             }
@@ -1329,11 +1329,11 @@ export async function callUpdate(callUpdate) {
     for (let nk of callUpdate) {
     if (nk.isGroup == false) {
     if (nk.status == "offer") {
-    let callmsg = await this.reply(nk.from, `Hi *@${nk.from.split('@')[0]}*, the ${nk.isVideo ? 'videollamadas' : 'llamadas'} are not allowed, you will be blocked.\n-\nif you accidentally called, contact my creator to unblock you!`, false, { mentions: [nk.from] })
+    let callmsg = await this.reply(nk.from, `Hi *@${nk.from.split('@')[0]}*, the ${nk.isVideo ? 'videollamadas' : 'llamadas'} are not allowed, you will be blocked.\n-\nif you accidentally called, contact my creantor to unblock you!`, true, { mentions: [nk.from] })
     //let data = global.owner.filter(([id, isCreator]) => id && isCreator)
     //await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
-    let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;Ahmad Ali 👑;;;\nFN:Ahmad Ali 👑\nORG:Ahmad Ali 👑\nTITLE:\nitem1.TEL;waid=923470027813:+92 347 0027813\nitem1.X-ABLabel:Ahmad Ali 👑\nX-WA-BIZ-DESCRIPTION:[❗] contact this number for important things.\nX-WA-BIZ-NAME:Ahmad Ali 👑\nEND:VCARD`
-    await this.sendMessage(nk.from, { contacts: { displayName: 'Ahmad Ali 👑', contacts: [{ vcard }] }}, {quoted: callmsg})
+    let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;⍟Rizwan » Ali⍟;;;\nFN:⍟Rizwan » Ali⍟\nORG:⍟Rizwan » Ali⍟\nTITLE:\nitem1.TEL;waid=923180327106:+92 318 0327106\nitem1.X-ABLabel:⍟Rizwan » Ali⍟\nX-WA-BIZ-DESCRIPTION:[❗] contact this number for important things.\nX-WA-BIZ-NAME:⍟Rizwan » Ali⍟\nEND:VCARD`
+    await this.sendMessage(nk.from, { contacts: { displayName: '⍟Rizwan » Ali⍟', contacts: [{ vcard }] }}, {quoted: callmsg})
     await this.updateBlockStatus(nk.from, 'block')
     }
     }
@@ -1378,7 +1378,7 @@ global.dfail = (type, m, conn) => {
         private: '*This command can only be used in private chat of bot*',
         admin: '*This command can only be used by ADMINS of GROUP*',
         botAdmin: '*To be able to use this command it is necessary that the bot is admin, add this number to admin*',
-        unreg: '*[ 🛑 hey!! stop, you are not registered 🛑 ]*\n\n*—◉ to use this command you must register, use the command*\n*➣ #verificar*',
+        unreg: '*[ 🛑 hey!! stop, you are not registered 🛑 ]*\n\n*—◉ to use this command you must register, use the command*\n*➣ #Wanted brothers*',
         restrict: '*This command is restricted/disabled by decision of the bot owner*'
     }[type]
     if (msg) return m.reply(msg)
